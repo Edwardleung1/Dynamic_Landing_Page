@@ -4,6 +4,9 @@ const greeting = document.getElementById("greeting");
 const name = document.getElementById("name");
 const focus = document.getElementById("focus");
 
+// Options
+const showAmPm = true;
+
 // Show Time
 function showTime() {
   // Current date and time
@@ -16,12 +19,12 @@ function showTime() {
   const amPm = hour >= 12 ? "PM" : "AM";
 
   // 12hr Format
-  hour = hour % 12 || 12; // Instead of 13 it will be 1pm
+  //hour = hour % 12 || 12; // Instead of 13 it will be 1pm
 
   // Output Time
   time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(
     sec
-  )}`; // Template literal
+  )} ${showAmPm ? amPm : ""}`; // Template literal
 
   // Call this showTime every second
   setTimeout(showTime, 1000);
